@@ -8,6 +8,27 @@ myImage.onclick = function () {
   }
 }
 
+let myButton = document.querySelector("button")
+let myHeading = document.querySelector("h1")
+
+function setUserName() {
+  let myName = prompt("请输入你的名字.");
+  localStorage.setItem("name", myName);
+  myHeading.textContent = "Mozilla awesome, " + myName;
+}
+
+if (!localStorage.getItem("name")) {
+  setUserName();
+} else {
+  let storedName = localStorage.getItem("name");
+  myHeading.textContent = "Mozilla awesome, " + storedName;
+}
+
+myButton.onclick = function() {
+  setUserName()
+}
+
+
 // let myHeading = document.querySelector("h1")
 // myHeading.textContent = "Hello world!"
 
